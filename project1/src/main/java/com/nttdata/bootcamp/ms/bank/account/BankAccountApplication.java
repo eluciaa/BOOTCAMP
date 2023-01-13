@@ -1,13 +1,13 @@
-package com.nttdata.bootcamp.project1;
+package com.nttdata.bootcamp.ms.bank.account;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class Project1Application {
+public class BankAccountApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(Project1Application.class, args);
+		SpringApplication.run(BankAccountApplication.class, args);
 	}
 
 }

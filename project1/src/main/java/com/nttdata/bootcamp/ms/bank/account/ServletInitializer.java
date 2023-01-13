@@ -1,4 +1,4 @@
-package com.nttdata.bootcamp.project1;
+package com.nttdata.bootcamp.ms.bank.account;
 
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
@@ -7,7 +7,7 @@ public class ServletInitializer extends SpringBootServletInitializer {
 
 	@Override
 	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
-		return application.sources(Project1Application.class);
+		return application.sources(BankAccountApplication.class);
 	}
 
 }
