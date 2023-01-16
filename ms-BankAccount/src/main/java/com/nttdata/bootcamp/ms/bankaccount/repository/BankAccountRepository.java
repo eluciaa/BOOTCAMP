@@ -7,6 +7,4 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface BankAccountRepository extends ReactiveMongoRepository<BankAccount,Integer> {
 
-
-
 }

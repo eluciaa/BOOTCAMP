@@ -13,7 +13,7 @@ import reactor.core.publisher.Mono;
 public class BankAccountServiceImpl implements BankAccountService{
 
     @Autowired
-    BankAccountRepository bankAccountRepository;
+    private BankAccountRepository bankAccountRepository;
 
     @Override
     public Flux<BankAccount> getAll(){

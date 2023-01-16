@@ -5,6 +5,7 @@ import com.nttdata.bootcamp.ms.bankaccount.entity.BankAccount;
 import com.nttdata.bootcamp.ms.bankaccount.service.BankAccountService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -35,7 +36,7 @@ public class BankAccountController {
      * @param id
      * @return
      */
-    @GetMapping (value = "/{id}")
+    @GetMapping ("/account/{id}")
     public Mono<ResponseEntity<BankAccount>> getAccountById(@PathVariable Integer id){
         return bankAccountService.getAccountById(id).map(response -> ResponseEntity.ok().contentType(MediaType.APPLICATION_JSON)
                 .body(response))
@@ -47,8 +48,8 @@ public class BankAccountController {
      * @param customerId
      * @return
      */
-    @GetMapping (value = "/{customerId}")
-    public Flux<BankAccount> getAccountByCustomerId(Integer customerId){
+    @GetMapping ("/customer/{customerId}")
+    public Flux<BankAccount> getAccountByCustomerId(@PathVariable Integer customerId){
         return bankAccountService.getAccountByCustomerId(customerId);
     }
 
@@ -58,7 +59,8 @@ public class BankAccountController {
      * @return
      */
     @PostMapping
-    public Mono<BankAccount> saveAccount(BankAccount bankAccount){
+    @ResponseStatus(HttpStatus.CREATED)
+    public Mono<BankAccount> saveAccount(@RequestBody BankAccount bankAccount){
         return bankAccountService.saveAccount(bankAccount);
     }
 
@@ -77,7 +79,7 @@ public class BankAccountController {
      * @param id
      * @return
      */
-    @DeleteMapping(value = "/{id}")
+    @DeleteMapping("/{id}")
     public Mono<BankAccount> deleteAccount(@PathVariable Integer id){
         return bankAccountService.deleteAccount(id);
     }
