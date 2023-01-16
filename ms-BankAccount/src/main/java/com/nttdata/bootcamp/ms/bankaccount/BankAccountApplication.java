@@ -1,4 +1,4 @@
-package com.nttdata.bootcamp.ms.bank.account;
+package com.nttdata.bootcamp.ms.bankaccount;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

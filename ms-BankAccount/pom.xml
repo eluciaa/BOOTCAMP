@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.nttdata.bootcamp</groupId>
-	<artifactId>ms-BankAccount</artifactId>
+	<artifactId>ms-bankaccount</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
-	<name>ms-BankAccount</name>
+	<name>ms-bankaccount</name>
 	<description>BankAcoount microservice - Bootcamps MS</description>
 	<properties>
 		<java.version>17</java.version>
