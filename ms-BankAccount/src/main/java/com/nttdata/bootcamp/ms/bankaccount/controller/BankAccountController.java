@@ -14,11 +14,11 @@ import reactor.core.publisher.Mono;
 
 @RestController
 @Slf4j
-@RequestMapping(value = "/bankaccount")
+@RequestMapping(value = "/accounts")
 public class BankAccountController {
 
     @Autowired
-    BankAccountService bankAccountService;
+    private BankAccountService bankAccountService;
 
     /**
      *
