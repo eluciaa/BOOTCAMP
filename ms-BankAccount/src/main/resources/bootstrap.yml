@@ -4,5 +4,5 @@ spring:
   cloud:
     config:
       enabled: true
-      uri: http://ms-configserver:8091
+      uri: http://config-server:8091
       profile: dev
