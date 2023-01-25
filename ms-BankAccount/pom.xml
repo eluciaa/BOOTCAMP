@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.nttdata.bootcamp</groupId>
 	<artifactId>ms-bankaccount</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0.0</version>
 	<packaging>jar</packaging>
 	<name>ms-bankaccount</name>
 	<description>BankAcoount microservice - Bootcamps MS</description>
@@ -119,6 +119,11 @@
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-site-plugin</artifactId>
 				<version>3.7.1</version>
+			</plugin>
+			<plugin>
+				<groupId>org.sonarsource.scanner.maven</groupId>
+				<artifactId>sonar-maven-plugin</artifactId>
+				<version>3.7.0.1746</version>
 			</plugin>
 		</plugins>
 	</build>
