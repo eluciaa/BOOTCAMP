@@ -39,6 +39,9 @@ public class BankAccountServiceImpl implements BankAccountService{
                     newBankAccount.setAccountType(bankAccount.getAccountType());
                     newBankAccount.setCustomerId(bankAccount.getCustomerId());
                     newBankAccount.setAccountBalance(bankAccount.getAccountBalance());
+                    newBankAccount.setTransactionLimit(bankAccount.getTransactionLimit());
+                    newBankAccount.setMaintenanceFee(bankAccount.getMaintenanceFee());
+                    newBankAccount.setTransactionFee(bankAccount.getTransactionFee());
                     return bankAccountRepository.save(newBankAccount);
                 });
     }
