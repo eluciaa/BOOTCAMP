@@ -1,9 +1,6 @@
 package com.nttdata.bootcamp.ms.bankaccount.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -12,6 +9,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Document(collection = "accounts")
 @Data
 @AllArgsConstructor
+@Generated
 public class BankAccount {
 
     @Id
