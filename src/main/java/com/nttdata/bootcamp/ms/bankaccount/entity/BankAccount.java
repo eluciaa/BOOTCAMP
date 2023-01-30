@@ -20,5 +20,5 @@ public class BankAccount {
     private Integer customerId;
     private String accountType;
 
-
+    private Integer 
 }
