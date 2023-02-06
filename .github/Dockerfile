@@ -5,6 +5,6 @@ RUN mvn clean package -DskipTests
 
 FROM openjdk:17-oracle
 VOLUME /tmp
-COPY target/*.jar ms-bankaccount-1.0.0.jar
 EXPOSE 8092
+COPY --from=build /target/ms-bankaccount-1.0.0.jar ./ms-bankaccount-1.0.0.jar
 ENTRYPOINT ["java","-jar","/ms-bankaccount-1.0.0.jar"]
