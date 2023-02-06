@@ -53,9 +53,9 @@ public class BankAccountServiceImpl implements BankAccountService{
     }
 
     @Override
-    public Flux<BankAccount> getAccountByCustomerId(Integer customerId){
+    public Flux<BankAccount> getAccountByCustomerId(String customerId){
         return bankAccountRepository.findAll()
-                .filter(bankAccount -> bankAccount.getCustomerId() ==  customerId);
+                .filter(bankAccount -> bankAccount.getCustomerId().equals(customerId));
 
     }
 }

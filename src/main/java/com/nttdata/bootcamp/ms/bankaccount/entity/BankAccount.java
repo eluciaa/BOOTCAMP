@@ -17,7 +17,7 @@ public class BankAccount {
     private String accountNumber;
     private Float accountBalance;
 
-    private Integer customerId;
+    private String customerId;
     private String accountType;
 
     private Float maintenanceFee;

@@ -49,7 +49,7 @@ public class BankAccountController {
      * @return
      */
     @GetMapping ("/customer/{customerId}")
-    public Flux<BankAccount> getAccountByCustomerId(@PathVariable Integer customerId){
+    public Flux<BankAccount> getAccountByCustomerId(@PathVariable String customerId){
         return bankAccountService.getAccountByCustomerId(customerId);
     }
 

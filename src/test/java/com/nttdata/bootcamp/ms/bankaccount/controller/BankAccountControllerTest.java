@@ -31,9 +31,9 @@ public class BankAccountControllerTest {
     @Test
     void getAll(){
         Flux<BankAccount> bankAccountFlux = Flux.just(new BankAccount(1, "3459",
-                20.1F, 1, "AHORRO FIJO", 3F, 4F,
+                20.1F, "1", "AHORRO FIJO", 3F, 4F,
                 2),new BankAccount(2, "345934",
-                30.1F, 1, "AHORRO", 1F, 2F,
+                30.1F, "1", "AHORRO", 1F, 2F,
                 4));
 
         when(bankAccountService.getAll()).thenReturn(bankAccountFlux);
@@ -49,10 +49,10 @@ public class BankAccountControllerTest {
         StepVerifier.create(responseBody)
                 .expectSubscription()
                 .expectNext(new BankAccount(1, "3459",
-                        20.1F, 1, "AHORRO FIJO", 3F, 4F,
+                        20.1F, "1", "AHORRO FIJO", 3F, 4F,
                         2))
                 .expectNext(new BankAccount(2, "345934",
-                        30.1F, 1, "AHORRO", 1F, 2F,
+                        30.1F, "1", "AHORRO", 1F, 2F,
                         4))
                 .verifyComplete();
     }
@@ -61,11 +61,11 @@ public class BankAccountControllerTest {
     @Test
     void getAccountById(){
         BankAccount bankAccount = new BankAccount(1, "3459",
-                20.1F, 1, "AHORRO FIJO", 3F, 4F,
+                20.1F, "1", "AHORRO FIJO", 3F, 4F,
                 2);
 
         Mono<BankAccount> bankAccountMono = Mono.just(new BankAccount(1, "3459",
-                20.1F, 1, "AHORRO FIJO", 3F, 4F,
+                20.1F, "1", "AHORRO FIJO", 3F, 4F,
                 2 ));
 
         when (bankAccountService.getAccountById(bankAccountMono.block().getAccountId()))
@@ -88,15 +88,15 @@ public class BankAccountControllerTest {
     void getAccountByCustomerId(){
 
         BankAccount bankAccount = new BankAccount(1, "3459",
-                20.1F, 1, "AHORRO FIJO", 3F, 4F,
+                20.1F, "1", "AHORRO FIJO", 3F, 4F,
                 2);
 
         Flux<BankAccount> bankAccountFlux = Flux.just(new BankAccount(1, "4837-3954-3958-4565",
-                20.1F, 1, "AHORRO FIJO", 3F, 4F,
+                20.1F, "1", "AHORRO FIJO", 3F, 4F,
                 2),new BankAccount(2, "4837-3954-3958-4566",
-                30.1F, 1, "AHORRO", 1F, 2F,
+                30.1F, "1", "AHORRO", 1F, 2F,
                 4), new BankAccount(3, "4837-3954-3958-4567",
-                        30.1F, 1, "CUENTA CORRIENTE", 1F, 2F,
+                        30.1F, "1", "CUENTA CORRIENTE", 1F, 2F,
                         4));
 
         when(bankAccountService.getAccountByCustomerId(bankAccount.getCustomerId())).thenReturn(bankAccountFlux);
@@ -112,13 +112,13 @@ public class BankAccountControllerTest {
         StepVerifier.create(responseBody)
                 .expectSubscription()
                 .expectNext(new BankAccount(1, "4837-3954-3958-4565",
-                        20.1F, 1, "AHORRO FIJO", 3F, 4F,
+                        20.1F, "1", "AHORRO FIJO", 3F, 4F,
                         2))
                 .expectNext(new BankAccount(2, "4837-3954-3958-4566",
-                        30.1F, 1, "AHORRO", 1F, 2F,
+                        30.1F, "1", "AHORRO", 1F, 2F,
                         4))
                 .expectNext(new BankAccount(3, "4837-3954-3958-4567",
-                        30.1F, 1, "CUENTA CORRIENTE", 1F, 2F,
+                        30.1F, "1", "CUENTA CORRIENTE", 1F, 2F,
                         4))
                 .verifyComplete();
     }
@@ -127,11 +127,11 @@ public class BankAccountControllerTest {
     void saveAccount(){
 
         Mono<BankAccount> bankAccountMono = Mono.just(new BankAccount(1, "4837-3954-3958-4565",
-                20.1F, 1, "AHORRO FIJO", 3F, 4F,
+                20.1F, "1", "AHORRO FIJO", 3F, 4F,
                 2 ));
 
         BankAccount bankAccount = new BankAccount(1, "4837-3954-3958-4565",
-                20.1F, 1, "AHORRO FIJO", 3F, 4F,
+                20.1F, "1", "AHORRO FIJO", 3F, 4F,
                 2);
 
         when(bankAccountService.saveAccount(bankAccount))
@@ -152,11 +152,11 @@ public class BankAccountControllerTest {
     void updateAccount(){
 
         BankAccount bankAccount = new BankAccount(1, "4837-3954-3958-4565",
-                20.1F, 1, "AHORRO FIJO", 3F, 4F,
+                20.1F, "1", "AHORRO FIJO", 3F, 4F,
                 2);
 
         Mono<BankAccount> bankAccountMono = Mono.just(new BankAccount(1, "4837-3954-3958-4565",
-                20.1F, 1, "AHORRO FIJO", 3F, 4F,
+                20.1F, "1", "AHORRO FIJO", 3F, 4F,
                 2 ));
 
         when(bankAccountService.updateAccount(bankAccount))
