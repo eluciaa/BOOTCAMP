@@ -11,5 +11,5 @@ public interface BankAccountService {
     Mono<BankAccount> saveAccount(BankAccount bankAccount);
     Mono<BankAccount> updateAccount(BankAccount bankAccount);
     Mono<BankAccount> deleteAccount(Integer accountId);
-    Flux<BankAccount> getAccountByCustomerId(Integer customerId);
+    Flux<BankAccount> getAccountByCustomerId(String customerId);
 }
