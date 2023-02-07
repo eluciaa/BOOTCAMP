@@ -1,10 +1,8 @@
 spring:
   application:
     name: bankaccount
-  config:
-    import: "optional:configserver:https://ms-configserver-team.azurewebsites.net"
   cloud:
     config:
       enabled: true
       uri: http://localhost:8091
-      profile: prod
+      profile: dev

@@ -2,11 +2,16 @@ package com.nttdata.bootcamp.ms.bankaccount.service;
 
 import com.nttdata.bootcamp.ms.bankaccount.entity.BankAccount;
 import com.nttdata.bootcamp.ms.bankaccount.repository.BankAccountRepository;
+import com.nttdata.bootcamp.ms.bankaccount.repository.RedisRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
+import org.springframework.data.redis.core.ReactiveRedisOperations;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
+
+import java.util.Objects;
 
 @Service
 @Slf4j
@@ -15,14 +20,20 @@ public class BankAccountServiceImpl implements BankAccountService{
     @Autowired
     private BankAccountRepository bankAccountRepository;
 
+    @Autowired
+    private RedisRepository redisRepository;
     @Override
     public Flux<BankAccount> getAll(){
         return bankAccountRepository.findAll();
     }
 
+
     @Override
     public Mono<BankAccount> getAccountById(Integer accountId){
-        return bankAccountRepository.findById(accountId);
+
+        Mono<BankAccount>  monoRedis = redisRepository.findById(accountId);
+        return Objects.requireNonNullElseGet(monoRedis, () -> bankAccountRepository.findById(accountId));
+
     }
 
     @Override

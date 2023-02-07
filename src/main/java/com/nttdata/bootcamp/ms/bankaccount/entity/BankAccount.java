@@ -4,13 +4,14 @@ import lombok.*;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Setter
-@Getter
+import java.io.Serializable;
+
 @Document(collection = "accounts")
 @Data
 @AllArgsConstructor
 @Generated
-public class BankAccount {
+@Builder
+public class BankAccount implements Serializable {
 
     @Id
     private Integer accountId;
